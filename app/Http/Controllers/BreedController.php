@@ -29,6 +29,15 @@ class BreedController extends Controller
     }
 
     /**
+     * @param Breed $breed
+     * @return Breed
+     */
+    public function show(Breed $breed)
+    {
+        return $breed;
+    }
+
+    /**
      * @param $search
      * @return mixed
      */
@@ -63,12 +72,11 @@ class BreedController extends Controller
                     Breed::updateOrCreate($item);
                 }
             }
+            return $breeds->paginate();
+
         } catch (\Exception $exception) {
-            dd($exception);
             Log::error($exception);
             return false;
         }
-
-        return $breeds->paginate();
     }
 }

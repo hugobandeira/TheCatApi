@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Breed extends Model
 {
     protected $fillable = [
+        "id",
         "name",
         "temperament",
         "life_span",
@@ -35,5 +36,8 @@ class Breed extends Model
         "social_needs",
         "stranger_friendly",
         "vocalisation",
+    ];
+    protected $casts = [
+        'id' => 'string'
     ];
 }

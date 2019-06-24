@@ -14,7 +14,7 @@ class CreateBreedsTable extends Migration
     public function up()
     {
         Schema::create('breeds', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->primary();
             $table->string('name');
             $table->string('temperament')->nullable();
             $table->string('life_span')->nullable();

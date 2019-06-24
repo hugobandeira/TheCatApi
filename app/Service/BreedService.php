@@ -23,7 +23,7 @@ class BreedService
     /**
      * @return Client
      */
-    private function getClient()
+    private function getClient() : Client
     {
         return new Client([
             'base_uri' => 'https://api.thecatapi.com/v1/',
@@ -40,15 +40,17 @@ class BreedService
     public function getBreed()
     {
         try {
-            return collect(json_decode(
-                $this
-                    ->getClient()
-                    ->get('breeds')
-                    ->getBody()
-                    ->getContents()
-            ));
-        } catch (\Exception $exception){
-            og::error($exception);
+            return collect(
+                json_decode(
+                    $this
+                        ->getClient()
+                        ->get('breeds')
+                        ->getBody()
+                        ->getContents()
+                    , true)
+            );
+        } catch (\Exception $exception) {
+            Log::error($exception);
             return collect();
         }
     }

@@ -12,3 +12,4 @@
 */
 
 Route::get('/breeds', 'BreedController@index');
+Route::get('/breeds/{breed}', 'BreedController@show');
