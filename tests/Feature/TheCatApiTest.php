@@ -24,9 +24,6 @@ class TheCatApiTest extends TestCase
     public function testApiCatService()
     {
         $service = new BreedService();
-        $this->assertArrayHasKey('1',$service->getTest());
-
+        $this->assertArrayHasKey('1', $service->getTest());
     }
-
-
 }

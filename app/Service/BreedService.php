@@ -47,8 +47,9 @@ class BreedService
                         ->getClient()
                         ->get('breeds')
                         ->getBody()
-                        ->getContents()
-                    , true)
+                        ->getContents(),
+                    true
+                )
             );
         } catch (\Exception $exception) {
             Log::error($exception);
@@ -72,7 +73,6 @@ class BreedService
                 ])
                 ->getBody()
                 ->getContents(), true));
-
         } catch (\Exception $exception) {
             Log::error($exception);
             return collect();
@@ -90,8 +90,9 @@ class BreedService
                     ->getClient()
                     ->get('breeds')
                     ->getBody()
-                    ->getContents()
-                , true)
+                    ->getContents(),
+                true
+            )
         );
     }
 }

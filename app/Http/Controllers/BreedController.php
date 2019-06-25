@@ -73,7 +73,6 @@ class BreedController extends Controller
                 }
             }
             return $breeds->paginate();
-
         } catch (\Exception $exception) {
             Log::error($exception);
             return false;
