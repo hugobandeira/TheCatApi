@@ -61,10 +61,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ApiRest com o edpoint Thecatapi [documentation](https://docs.thecatapi.com) 
 
-# Sobre o Projeto
-
-Este projeto tem por objetivo estabelecer a conexão com um endpoint. O endpoint tem como função salvar esse dado no banco de dados local, e em casos onde  o banco de dados esteja indisponível, este se conectaria diretamente com a API,  e ocorrendo o mesmo problema com a API consumiria os dados salvos no banco de dados local.
-
 ## Project setup
 ```
 composer install
@@ -74,3 +70,9 @@ composer install
 ```
 php artisan serve
 ```
+
+### Run your tests
+```
+vendor/bin/phpunit      
+```
+        
