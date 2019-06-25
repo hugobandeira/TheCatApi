@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 class BreedService
@@ -55,6 +56,10 @@ class BreedService
         }
     }
 
+    /**
+     * @param string $search
+     * @return Collection
+     */
     public function getBreeadSearch(string $search)
     {
         try {
@@ -72,5 +77,21 @@ class BreedService
             Log::error($exception);
             return collect();
         }
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getTest()
+    {
+        return collect(
+            json_decode(
+                $this
+                    ->getClient()
+                    ->get('breeds')
+                    ->getBody()
+                    ->getContents()
+                , true)
+        );
     }
 }
